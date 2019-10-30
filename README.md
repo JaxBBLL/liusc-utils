@@ -74,6 +74,8 @@ liuscUtils.siblings(ele: HTMLElement)
 liuscUtils.getStyle(element: HTMLElement, name: any)
 // 获取元素行内样式
 liuscUtils.setStyle(element: HTMLElement, styleName: any, value: any)
+// 获取元素的下标
+liuscUtils.index(element: HTMLElement)
 // 获取元素行内样式
 liuscUtils.setStyle(element: HTMLElement, styleName: any, value: any)
 // 绑定事件
@@ -112,6 +114,14 @@ liuscUtils.stringIs(str: string, type: string)
 liuscUtils.debounce(func: Function, wait: number)
 // 节流
 liuscUtils.throttle(action: Function, delay: number)
+// 深度克隆
+liuscUtils.deepClone(data: any)
+// 滚动到指定位置
+liuscUtils.scrollTo(position:number = 0)
+// 获取一个元素的距离文档(document)的位置
+liuscUtils.offset(ele: HTMLElement)
+// 获取设备信息
+liuscUtils.device()
 // jsonp
 liuscUtils.jsonp({
   url: 'http://demo.com/api',

@@ -1,10 +1,12 @@
 const SPECIAL_CHARS_REGEXP = /([\:\-\_]+(.))/g;
 const MOZ_HACK_REGEXP = /^moz([A-Z])/;
 
-const camelCase = function (name: string) {
-  return name.replace(SPECIAL_CHARS_REGEXP, function (_, separator, letter, offset) {
-    return offset ? letter.toUpperCase() : letter;
-  }).replace(MOZ_HACK_REGEXP, 'Moz$1');
+const camelCase = function(name: string) {
+  return name
+    .replace(SPECIAL_CHARS_REGEXP, function(_, separator, letter, offset) {
+      return offset ? letter.toUpperCase() : letter;
+    })
+    .replace(MOZ_HACK_REGEXP, "Moz$1");
 };
 
 export function qsa(selector: string, scope?: HTMLElement | Document) {
@@ -12,7 +14,7 @@ export function qsa(selector: string, scope?: HTMLElement | Document) {
   if (type === "#") {
     return document.getElementById(selector.substring(1));
   } else {
-    return (scope || document).querySelectorAll(selector)
+    return (scope || document).querySelectorAll(selector);
   }
 }
 
@@ -35,7 +37,11 @@ export function removeClass(ele: HTMLElement, name: string) {
 }
 
 /* 替换类名 */
-export function replaceClass(ele: HTMLElement, newName: string, oldName: string) {
+export function replaceClass(
+  ele: HTMLElement,
+  newName: string,
+  oldName: string
+) {
   removeClass(ele, oldName);
   addClass(ele, newName);
 }
@@ -63,7 +69,7 @@ export function getStyle(element: HTMLElement, name: any) {
 export function setStyle(element: HTMLElement, styleName: any, value: any) {
   if (!element || !styleName) return;
 
-  if (typeof styleName === 'object') {
+  if (typeof styleName === "object") {
     for (var prop in styleName) {
       if (styleName.hasOwnProperty(prop)) {
         setStyle(element, prop, styleName[prop]);
@@ -73,5 +79,11 @@ export function setStyle(element: HTMLElement, styleName: any, value: any) {
     styleName = camelCase(styleName);
     element.style[styleName] = value;
   }
-};
+}
 
+export const index = function(el: HTMLElement | Document) {
+  if (!el.parentNode) {
+    return 0;
+  }
+  return Array.prototype.indexOf.call(el.parentNode.children, el);
+};
