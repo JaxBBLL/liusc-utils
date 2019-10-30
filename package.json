@@ -1,0 +1,40 @@
+{
+  "name": "liusc-utils",
+  "version": "1.0.3",
+  "description": "javascript utils",
+  "main": "dist/liusc-utils.js",
+  "scripts": {
+    "clean": "rimraf ./dist && mkdir dist",
+    "dev": "npm run clean && rollup -w -c",
+    "build": "npm run clean && rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JaxBBLL/liusc-utils.git"
+  },
+  "keywords": [
+    "typescript",
+    "util"
+  ],
+  "author": "liusc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JaxBBLL/liusc-utils/issues"
+  },
+  "homepage": "https://github.com/JaxBBLL/liusc-utils#readme",
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "rimraf": "^3.0.0",
+    "rollup": "^1.21.2",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-flow-no-whitespace": "^1.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-typescript2": "^0.24.3",
+    "rollup-plugin-uglify": "^6.0.3",
+    "typescript": "^3.6.4"
+  }
+}
