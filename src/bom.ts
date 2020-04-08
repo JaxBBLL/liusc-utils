@@ -40,3 +40,31 @@ export const offset = function(ele: HTMLElement) {
   }
   return pos;
 };
+
+let scrollBarWidth: number;
+/**
+ * 获取滚动条的宽度
+ */
+export const getScrollBarWidth = function() {
+  if (scrollBarWidth) return scrollBarWidth;
+
+  const outer: HTMLElement = document.createElement("div");
+  outer.style.visibility = "hidden";
+  outer.style.width = "100px";
+  outer.style.position = "absolute";
+  outer.style.top = "-9999px";
+  document.body.appendChild(outer);
+
+  const widthNoScroll = outer.offsetWidth;
+  outer.style.overflow = "scroll";
+
+  const inner = document.createElement("div");
+  inner.style.width = "100%";
+  outer.appendChild(inner);
+
+  const widthWithScroll = inner.offsetWidth;
+  outer.parentNode && outer.parentNode.removeChild(outer);
+  scrollBarWidth = widthNoScroll - widthWithScroll;
+
+  return scrollBarWidth;
+};

@@ -77,6 +77,7 @@ var deepClone = function (values) {
     }
     throw new Error("Unable to copy values! Its type isn't supported.");
 };
+//# sourceMappingURL=util.js.map
 
 var proto = String.prototype;
 function trimLeft(str) {
@@ -133,6 +134,7 @@ function qsStringify(obj, sep, eq, encode) {
         return ret;
     }
 }
+//# sourceMappingURL=string.js.map
 
 var REG_PHONE = /^1[3|4|5|6|7|8][0-9]{9}$/;
 var REG_TEL = /^(0\d{2,3}-\d{7,8})(-\d{1,4})?$/;
@@ -187,6 +189,7 @@ function stringIs(str, type) {
             return true;
     }
 }
+//# sourceMappingURL=reg.js.map
 
 var dateFormat = function (date, fmt) {
     if (fmt === void 0) { fmt = "YYYY-MM-DD HH:mm:ss"; }
@@ -235,6 +238,7 @@ var dateFormat = function (date, fmt) {
     }
     return fmt;
 };
+//# sourceMappingURL=date.js.map
 
 var SPECIAL_CHARS_REGEXP = /([\:\-\_]+(.))/g;
 var MOZ_HACK_REGEXP = /^moz([A-Z])/;
@@ -314,6 +318,7 @@ var index = function (el) {
     }
     return Array.prototype.indexOf.call(el.parentNode.children, el);
 };
+//# sourceMappingURL=dom.js.map
 
 var scrollTo = function (position) {
     if (position === void 0) { position = 0; }
@@ -358,6 +363,30 @@ var offset = function (ele) {
     }
     return pos;
 };
+var scrollBarWidth;
+/**
+ * 获取滚动条的宽度
+ */
+var getScrollBarWidth = function () {
+    if (scrollBarWidth)
+        { return scrollBarWidth; }
+    var outer = document.createElement("div");
+    outer.style.visibility = "hidden";
+    outer.style.width = "100px";
+    outer.style.position = "absolute";
+    outer.style.top = "-9999px";
+    document.body.appendChild(outer);
+    var widthNoScroll = outer.offsetWidth;
+    outer.style.overflow = "scroll";
+    var inner = document.createElement("div");
+    inner.style.width = "100%";
+    outer.appendChild(inner);
+    var widthWithScroll = inner.offsetWidth;
+    outer.parentNode && outer.parentNode.removeChild(outer);
+    scrollBarWidth = widthNoScroll - widthWithScroll;
+    return scrollBarWidth;
+};
+//# sourceMappingURL=bom.js.map
 
 function on(element, event, handler, useCapture) {
     if (element && event && handler) {
@@ -399,6 +428,7 @@ function outclick(el, fn) {
         ev.stopPropagation();
     });
 }
+//# sourceMappingURL=event.js.map
 
 function setCookie(name, value, day) {
     var setting = arguments[0];
@@ -428,6 +458,7 @@ function getCookie(name) {
 function removeCookie(name) {
     setCookie(name, 1, -1);
 }
+//# sourceMappingURL=cookie.js.map
 
 /**
   jsonp({
@@ -529,6 +560,7 @@ function ajax(setting) {
         error(err);
     };
 }
+//# sourceMappingURL=http.js.map
 
 var device = function () {
     // 权重：系统 + 系统版本 > 平台 > 内核 + 载体 + 内核版本 + 载体版本 > 外壳 + 外壳版本
@@ -711,8 +743,9 @@ var device = function () {
             shellVs: shellVs
         });
 };
+//# sourceMappingURL=device.js.map
 
-
+//# sourceMappingURL=liusc.js.map
 
 var liusc = /*#__PURE__*/Object.freeze({
   type: type,
@@ -752,6 +785,7 @@ var liusc = /*#__PURE__*/Object.freeze({
   index: index,
   scrollTo: scrollTo,
   offset: offset,
+  getScrollBarWidth: getScrollBarWidth,
   on: on,
   delegate: delegate,
   off: off,
@@ -764,5 +798,7 @@ var liusc = /*#__PURE__*/Object.freeze({
   ajax: ajax,
   device: device
 });
+
+//# sourceMappingURL=index.js.map
 
 export default liusc;

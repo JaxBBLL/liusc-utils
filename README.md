@@ -116,6 +116,8 @@ liuscUtils.debounce(func: Function, wait: number)
 liuscUtils.throttle(action: Function, delay: number)
 // 深度克隆
 liuscUtils.deepClone(data: any)
+// 获取滚动条的宽度
+liuscUtils.getScrollBarWidth()
 // 滚动到指定位置
 liuscUtils.scrollTo(position:number = 0)
 // 获取一个元素的距离文档(document)的位置
