@@ -132,7 +132,7 @@ liuscUtils.jsonp({
   success: function(data) {}
 })
 // ajax
-ajax({
+liuscUtils.ajax({
   method: 'GET',
   url: 'http://demo.com/api',
   params: {}, // url参数
@@ -143,6 +143,8 @@ ajax({
   error: function(err) {},
   withCredentials: false
 })
+// 获取滚动条宽度
+liuscUtils.getScrollBarWidth()
 // 设置cookie
 liuscUtils.setCookie(name: string, value: string | number, day: number)
 // 获取cookie
