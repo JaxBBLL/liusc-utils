@@ -86,7 +86,7 @@
 
   var proto = String.prototype;
   function trimLeft(str) {
-      if (proto.trimLeft) {
+      if (typeof proto.trimLeft === 'function') {
           return str.trimLeft();
       }
       else {
@@ -94,7 +94,7 @@
       }
   }
   function trimRight(str) {
-      if (proto.trimRight) {
+      if (typeof proto.trimLeft === 'function') {
           return str.trimRight();
       }
       else {

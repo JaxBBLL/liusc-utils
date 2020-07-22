@@ -4,7 +4,7 @@ import { type } from "./util";
 const proto = String.prototype;
 
 export function trimLeft(str: string) {
-  if (proto.trimLeft) {
+  if (typeof proto.trimLeft === 'function') {
     return str.trimLeft();
   } else {
     return str.replace(/^\s+/, "");
@@ -12,7 +12,7 @@ export function trimLeft(str: string) {
 }
 
 export function trimRight(str: string) {
-  if (proto.trimRight) {
+  if (typeof proto.trimLeft === 'function') {
     return str.trimRight();
   } else {
     return str.replace(/\s+$/, "");
